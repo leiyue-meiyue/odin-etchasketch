@@ -1,0 +1,17 @@
+.boxes-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2px;
+  width: 600px;
+}
+
+.square {
+  border: 2px solid black;
+  height: 31px;
+  width: 31px;
+}
+
+.black-bg {
+  background-color: black;
+}
