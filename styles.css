@@ -2,14 +2,17 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 2px;
+  gap: 1px;
   width: 600px;
+  border: 1px solid blue;
+  background-color: black;
 }
 
 .square {
-  border: 2px solid black;
-  height: 31.625px;
-  width: 31.625px;
+  border: 0px solid black;
+  background-color: white;
+  /* height: 31.625px; */
+  /* width: 31.625px; */
 }
 
 .black-bg {
@@ -27,5 +30,17 @@ width of all squares = 600
 602 = 16(squaresize + 6) 
 
 squaresize = 31.625
+
+formula:
+container width + 2 = numsquares(squaresize + 6) 
+squaresize = ((container width + 2) / numsquares) - 6
+
+BETTER FORMULA: 
+containerWidth = numInRow(squareSize + 2border + gap) - gap
+containerWidth + gap = numInRow(squareSize + 2border + gap)
+(containerWidth + gap) / numInRow = squareSize + 2border + gap
+(containerWidth + gap) / numInRow - 2border - gap = squareSize
+squareSize = (containerWidth + gap) / numInRow - 2border - gap
+
 */
 
