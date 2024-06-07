@@ -6,16 +6,28 @@
 
 const boxesContainer = document.querySelector(".boxes-container");
 
-// loop thru it 16 times
-let numInRow = 256;
-for (i = 0; i < numInRow; i++) {
-  // create element and add as child to container
-  const square = document.createElement("div");
-  square.classList.add("square");
-  boxesContainer.appendChild(square);
+let numInRow = 16;
 
-  square.addEventListener("mouseenter", () => {
-    square.classList.add("black-bg");
-  })
+
+function createPad (numInRow) {
+  let gridSize = numInRow * numInRow;
+  for (i = 0; i < gridSize; i++) {
+    // create element and add as child to container
+    const square = document.createElement("div");
+    square.classList.add("square");
+    boxesContainer.appendChild(square);
+  
+    square.addEventListener("mouseenter", () => {
+      square.classList.add("black-bg");
+    })
+  }
 }
 
+createPad(numInRow);
+
+const changeGridSize = document.querySelector("#change-grid-size");
+changeGridSize.addEventListener("click", () => {
+  numInRow = prompt("Enter a number between 1 and 100");
+  boxesContainer.replaceChildren();       // remove boxes
+  createPad(numInRow);
+})

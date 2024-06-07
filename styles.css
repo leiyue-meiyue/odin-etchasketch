@@ -8,10 +8,24 @@
 
 .square {
   border: 2px solid black;
-  height: 31px;
-  width: 31px;
+  height: 31.625px;
+  width: 31.625px;
 }
 
 .black-bg {
   background-color: black;
 }
+
+/* 
+how to calculate square height and width 
+width of each square = square size + border + gap
+width of all squares = numsquares(squaresize + 2border + gap) - gap
+
+width of all squares = 600
+
+600 = 16(squaresize + 4 + 2) - 2 
+602 = 16(squaresize + 6) 
+
+squaresize = 31.625
+*/
+
