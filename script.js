@@ -14,14 +14,6 @@ let border = 0;
 
 function calculateSquareWidth (containerWidth, numInRow, gap, border) {
   let squareWidth = (containerWidth + gap) / numInRow - (2 * border) - gap;
-
-  // squareWidth = (600 + 2) / 25 - (2 * 2) - 2
-  //             = 18.08
-
-  // squareWidth = (600 + 2) / 30 - (2 * 2) - 2
-  //             = 
-  // squareWidth = Math.round(squareWidth * 1000) / 1000
-
   return squareWidth
 }
 
@@ -34,10 +26,8 @@ function createPad (numInRow, squareWidth) {
     square.classList.add("square");
     square.style.setProperty("width", `${squareWidth}px`);
     square.style.setProperty("height", `${squareWidth}px`);
-    // square.style.setProperty("width", `100%`);
 
     boxesContainer.appendChild(square);
-    console.log(square);
 
     square.addEventListener("mouseenter", () => {
       square.classList.add("black-bg");
@@ -50,9 +40,15 @@ createPad(numInRow, squareWidth);
 const changeGridSize = document.querySelector("#change-grid-size");
 changeGridSize.addEventListener("click", () => {
   numInRow = prompt("Enter the number of squares on each row (max 100)");
-  boxesContainer.replaceChildren();       // remove boxes
-  squareWidth = calculateSquareWidth(containerWidth, numInRow, gap, border);
-  console.log(squareWidth);
-  createPad(numInRow, squareWidth);
+  // check proper input
+  if (numInRow > 100 || numInRow < 1) {
+    alert("Please enter a number between 1 and 100!");
+  } else if (!Number(numInRow)) {
+    alert("Please enter a valid number");
+  } else {
+    boxesContainer.replaceChildren();       // remove boxes
+    squareWidth = calculateSquareWidth(containerWidth, numInRow, gap, border);
+    createPad(numInRow, squareWidth);
+  }
 })
 
