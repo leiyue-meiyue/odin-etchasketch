@@ -4,6 +4,7 @@ const boxesContainer = document.querySelector(".boxes-container");
 let numInRow = 16;
 let containerWidth = 600;
 let gap = 1;
+let isRainbow = false;
 boxesContainer.style.setProperty("gap", `${gap}px`);
 
 function calculateSquareWidth (containerWidth, numInRow, gap) {
@@ -13,7 +14,7 @@ function calculateSquareWidth (containerWidth, numInRow, gap) {
 
 let squareWidth = calculateSquareWidth(containerWidth, numInRow, gap);
 
-function createPad (numInRow, squareWidth) {
+function createPad (numInRow, squareWidth, isRainbow) {
   let gridSize = numInRow * numInRow;
   for (i = 0; i < gridSize; i++) {
     const square = document.createElement("div");
@@ -24,17 +25,21 @@ function createPad (numInRow, squareWidth) {
     boxesContainer.appendChild(square);
 
     square.addEventListener("mouseenter", () => {
-      square.classList.add("black-bg");
+      if (isRainbow) {
+        square.style.backgroundColor = `${getRandomColor()}`;
+      } else {
+        square.style.backgroundColor = 'black';
+      }
     })
   }
 }
 
-createPad(numInRow, squareWidth);
+createPad(numInRow, squareWidth, isRainbow);
 
 const reset = document.querySelector("#reset");
 reset.addEventListener("click", () => {
   boxesContainer.replaceChildren();
-  createPad(numInRow, squareWidth);
+  createPad(numInRow, squareWidth, isRainbow);
 })
 
 const changeGridSize = document.querySelector("#change-grid-size");
@@ -48,7 +53,37 @@ changeGridSize.addEventListener("click", () => {
   } else {
     boxesContainer.replaceChildren();       // remove boxes
     squareWidth = calculateSquareWidth(containerWidth, numInRow, gap);
-    createPad(numInRow, squareWidth);
+    createPad(numInRow, squareWidth, isRainbow);
   }
 })
 
+// rainbow button
+
+function getRandomColor() {
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+const rainbow = document.querySelector("#rainbow");
+
+rainbow.addEventListener("click", () => {
+  let color = getRandomColor();
+  boxesContainer.replaceChildren();
+  if (isRainbow) {
+    isRainbow = false;
+  } else {
+    isRainbow = true;
+  }
+
+  createPad(numInRow, squareWidth, isRainbow);
+  // const styleSheet = document.styleSheets[0];
+  // const rules = styleSheet.cssRules;
+  // rules['black-bg'].style.color = `${color}`;
+  // styleSheet.insertRule(`.rainbow { background-color: ${color};`,0);
+
+
+})

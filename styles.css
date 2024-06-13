@@ -12,8 +12,8 @@ h1 {
 }
 
 button {
-  padding: 10px;
-  border-radius: 15px;
+  padding: 8px 10px;
+  border-radius: 10px;
   background-color: lightgrey;
   border: 1px solid grey;
   margin: 0 2.5px 5px 2.5px;
@@ -34,10 +34,6 @@ button {
   background-color: white;
   /* height: 31.625px; */
   /* width: 31.625px; */
-}
-
-.black-bg {
-  background-color: black;
 }
 
 
