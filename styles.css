@@ -16,7 +16,7 @@ button {
   border-radius: 15px;
   background-color: lightgrey;
   border: 1px solid grey;
-  margin-bottom: 5px;
+  margin: 0 2.5px 5px 2.5px;
 }
 
 .boxes-container {
@@ -37,7 +37,7 @@ button {
 }
 
 .black-bg {
-  background-color: grey;
+  background-color: black;
 }
 
 

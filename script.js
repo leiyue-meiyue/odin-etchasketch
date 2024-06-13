@@ -31,6 +31,12 @@ function createPad (numInRow, squareWidth) {
 
 createPad(numInRow, squareWidth);
 
+const reset = document.querySelector("#reset");
+reset.addEventListener("click", () => {
+  boxesContainer.replaceChildren();
+  createPad(numInRow, squareWidth);
+})
+
 const changeGridSize = document.querySelector("#change-grid-size");
 changeGridSize.addEventListener("click", () => {
   numInRow = prompt("Enter the number of squares on each row (max 100)");
