@@ -1,23 +1,17 @@
-// create a 16x16 grid of square divs
-// create a div
-// make it a square with css
-// loop through it 16 times
-
-
 const boxesContainer = document.querySelector(".boxes-container");
 
 // initialize
 let numInRow = 16;
 let containerWidth = 600;
 let gap = 1;
-let border = 0;
+boxesContainer.style.setProperty("gap", `${gap}px`);
 
-function calculateSquareWidth (containerWidth, numInRow, gap, border) {
-  let squareWidth = (containerWidth + gap) / numInRow - (2 * border) - gap;
+function calculateSquareWidth (containerWidth, numInRow, gap) {
+  let squareWidth = (containerWidth + gap) / numInRow - gap;
   return squareWidth
 }
 
-let squareWidth = calculateSquareWidth(containerWidth, numInRow, gap, border);
+let squareWidth = calculateSquareWidth(containerWidth, numInRow, gap);
 
 function createPad (numInRow, squareWidth) {
   let gridSize = numInRow * numInRow;
@@ -47,7 +41,7 @@ changeGridSize.addEventListener("click", () => {
     alert("Please enter a valid number");
   } else {
     boxesContainer.replaceChildren();       // remove boxes
-    squareWidth = calculateSquareWidth(containerWidth, numInRow, gap, border);
+    squareWidth = calculateSquareWidth(containerWidth, numInRow, gap);
     createPad(numInRow, squareWidth);
   }
 })

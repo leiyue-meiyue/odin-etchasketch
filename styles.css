@@ -1,22 +1,57 @@
+.main-container { 
+  display: flex;
+  justify-content: center;
+}
+
+.main {
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px;
+  border-radius: 15px;
+  background-color: lightgrey;
+  border: 1px solid grey;
+  margin-bottom: 5px;
+}
+
 .boxes-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 1px;
   width: 600px;
-  border: 1px solid blue;
-  background-color: black;
+  border: 1px solid grey;
+  background-color: grey;
 }
 
 .square {
-  border: 0px solid black;
+  border: 0px solid grey;
   background-color: white;
   /* height: 31.625px; */
   /* width: 31.625px; */
 }
 
 .black-bg {
-  background-color: black;
+  background-color: grey;
+}
+
+
+
+
+
+/* FOOTER */
+
+#footer {
+  text-align: center;
+}
+
+.small-text {
+  font-size: 8px;
 }
 
 /* 
